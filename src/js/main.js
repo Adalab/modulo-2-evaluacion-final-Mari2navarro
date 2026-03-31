@@ -54,7 +54,10 @@ function renderFavorites() {
     const fav = favorites[i];
 
     favoritesList.innerHTML += `
-    <li>${fav.show.name}</li>
+    <li class="favorite__item">
+    ${fav.show.name}
+    <button class="js__remove" data-index="${i}"> ❌ </button>
+    </li>
     `;
   }
 }
@@ -98,6 +101,23 @@ function handleClickSeries(ev) {
   renderSeries();
 }
 
+//función para borrar favoritos
+function handleRemoveFavorite(ev) {
+  const btn = ev.target.closest(".js__remove");
+
+  if (!btn) {
+    return;
+  }
+
+  const index = parseInt(btn.dataset.index);
+
+  favorites.splice(index, 1);
+
+  localStorage.setItem("favorites", JSON.stringify(favorites));
+
+  renderFavorites();
+  renderSeries();
+}
 //SECCIÓN DE EVENTOS
 //Estos son los eventos a los que reacciona la página
 
@@ -107,6 +127,8 @@ form.addEventListener("submit", handleSearch);
 //Este evento es para cuando hacemos click en una serie
 resultsList.addEventListener("click", handleClickSeries);
 
+//Este evento es para borrar favoritos
+favoritesList.addEventListener("click", handleRemoveFavorite);
 //SECCIÓN DE ACCIONES AL CARGAR LA PÁGINA
 //Este código se ejecutará cuando se carga la página: pedir datos al servidor, pintar elementos en la página
 

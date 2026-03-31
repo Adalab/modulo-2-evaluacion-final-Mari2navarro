@@ -1,4 +1,134 @@
+*{
+    box-sizing: border-box;
+}
+
+h1{
+    margin-bottom: 1rem;
+}
+
+body{
+    background-color: #fdf7f9;
+    font-family: "JetBrains Mono", monospace;
+    color: #2c2c2c;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+}
+
+.form {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.form__input {
+    flex: 1;
+    padding: 0.7rem;
+    border: 1px solid #e8a0bf;
+    border-radius: 12px;
+}
+
+.form__button {
+    background-color: #e8a0bf;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 12px;
+    color:white;
+    cursor: pointer;
+}
+
+.results__list {
+    list-style: none;
+    padding: 0;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.results__list li {
+    background-color: white;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+
+.results__list li:hover {
+    transform: translateY(-5px);
+}
+
+.results__list img {
+    width: 100%;
+    display:block
+}
+
+.results__list h3 {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+}
+
+.favorites{
+    background-color: #f2e9ee;
+    padding: 1rem;
+    border-radius: 16px;
+    height: fit-content;
+}
+
+.favorites__title {
+    margin-bottom: 1rem;
+}
+
+.favorites__list {
+    list-style: none;
+    padding: 0;
+}
+
+.favorites__list li {
+    margin-bottom: 0.5rem;
+}
+
+.favorite__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.js__remove {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
 .selected {
-    background-color: red;
+    background-color: #e8a0bf;
     color: white;
+}
+
+.selected h3 {
+    color: white;
+}
+
+.page__main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.footer {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    text-align: center;
+    background-color: #f2e9ee;
+    border-radius: 16px;
+}
+
+.footer__text {
+    font-size: 0.8rem;
+    color: #888;
 }
