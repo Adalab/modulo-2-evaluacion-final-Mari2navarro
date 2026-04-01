@@ -4,12 +4,14 @@
 
 h1{
     margin-bottom: 1rem;
+    text-align: center;
 }
 
 body{
     background-color: #fdf7f9;
     font-family: "JetBrains Mono", monospace;
     color: #2c2c2c;
+    letter-spacing: 0.3px;
 }
 
 .container {
@@ -40,6 +42,10 @@ body{
     cursor: pointer;
 }
 
+.results__title {
+    text-align: center;
+}
+
 .results__list {
     list-style: none;
     padding: 0;
@@ -55,22 +61,24 @@ body{
     overflow: hidden;
     cursor: pointer;
 
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s ease;
 }
 
 .results__list li:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px) scale(1.01);
 }
 
 .results__list img {
     width: 100%;
-    display:block
+    height: 220px;
+    object-fit: cover;
 }
 
 .results__list h3 {
-    font-size: 0.9rem;
-    padding: 0.5rem;
+    font-size: 0.85rem;
+    padding: 0.6rem;
+    text-align: center;
 }
 
 .favorites{
@@ -97,16 +105,53 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    padding: 0.4rem 0.6rem;
+    border-radius: 8px;
+}
+
+.favorite__item:hover {
+    background-color: #e8a0bf;
+}
+
+.favorites__reset {
+    display: block;
+    margin: 1.5rem auto 0 auto;
+
+    background: none;
+    border: none;
+
+    color: #d46a92;
+    font-size: 0.9rem;
+
+    cursor: pointer;
+    opacity: 0.7;
+    transition: 0.2s;
+}
+
+.favorites__reset:hover {
+    opacity: 1;
+}
+
+.favorites__empty {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #6b6b6b;
+    margin-top: 1rem;
+    opacity: 0.7;
 }
 
 .js__remove {
-    background: none;
-    border: none;
-    cursor: pointer;
+    font-size: 0.9rem;
+    opacity: 0.6;
+}
+
+.js__remove:hover {
+    opacity: 1;
 }
 
 .selected {
-    background-color: #e8a0bf;
+    background: linear-gradient(135deg, #e8a0bf, #d46a92);
     color: white;
 }
 

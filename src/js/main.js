@@ -5,6 +5,7 @@ const form = document.querySelector(".js__form");
 const input = document.querySelector(".js__input");
 const resultsList = document.querySelector(".js__results");
 const favoritesList = document.querySelector(".js__favorites");
+const resetBtn = document.querySelector(".js__reset");
 
 //SECCIÓN DE DATOS//
 //Variables globales que almacenan la información principal y se usan por todo el fichero
@@ -49,6 +50,15 @@ function renderSeries() {
 //función para pintar los favoritos
 function renderFavorites() {
   favoritesList.innerHTML = "";
+
+  if (favorites.length === 0) {
+    favoritesList.innerHTML = `
+    <li class="favorites__empty">
+    no hay favoritos...todavía ✨
+    </li>
+    `;
+    return;
+  }
 
   for (let i = 0; i < favorites.length; i++) {
     const fav = favorites[i];
@@ -118,6 +128,16 @@ function handleRemoveFavorite(ev) {
   renderFavorites();
   renderSeries();
 }
+
+//función para borrar todos los favoritos
+function handleResetFavorites() {
+  favorites = [];
+
+  localStorage.removeItem("favorites");
+
+  renderFavorites();
+  renderSeries();
+}
 //SECCIÓN DE EVENTOS
 //Estos son los eventos a los que reacciona la página
 
@@ -129,6 +149,10 @@ resultsList.addEventListener("click", handleClickSeries);
 
 //Este evento es para borrar favoritos
 favoritesList.addEventListener("click", handleRemoveFavorite);
+
+//Este evento es para borrar todos los favoritos
+resetBtn.addEventListener("click", handleResetFavorites);
+
 //SECCIÓN DE ACCIONES AL CARGAR LA PÁGINA
 //Este código se ejecutará cuando se carga la página: pedir datos al servidor, pintar elementos en la página
 
