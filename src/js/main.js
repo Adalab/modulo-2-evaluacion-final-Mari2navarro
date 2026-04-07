@@ -1,6 +1,7 @@
 "use strict";
 
 //SECCIÓN DE QUERY-SELECTOR//
+
 const form = document.querySelector(".js__form");
 const input = document.querySelector(".js__input");
 const resultsList = document.querySelector(".js__results");
@@ -8,12 +9,11 @@ const favoritesList = document.querySelector(".js__favorites");
 const resetBtn = document.querySelector(".js__reset");
 
 //SECCIÓN DE DATOS//
-//Variables globales que almacenan la información principal y se usan por todo el fichero
+
 let series = [];
 let favorites = [];
 
 //SECCIÓN DE FUNCIONES//
-//Estas son funciones con código auxiliar, con código que usaremos en los eventos o para pintar en la página
 
 function renderSeries() {
   resultsList.innerHTML = "";
@@ -138,8 +138,8 @@ function handleResetFavorites() {
   renderFavorites();
   renderSeries();
 }
+
 //SECCIÓN DE EVENTOS
-//Estos son los eventos a los que reacciona la página
 
 //Este evento es para cuando le damos a buscar
 form.addEventListener("submit", handleSearch);
@@ -154,7 +154,6 @@ favoritesList.addEventListener("click", handleRemoveFavorite);
 resetBtn.addEventListener("click", handleResetFavorites);
 
 //SECCIÓN DE ACCIONES AL CARGAR LA PÁGINA
-//Este código se ejecutará cuando se carga la página: pedir datos al servidor, pintar elementos en la página
 
 const savedFavorites = JSON.parse(localStorage.getItem("favorites"));
 
