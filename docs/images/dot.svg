@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="gradPink" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f7c6d9"></stop>
+      <stop offset="100%" stop-color="#d46a92"></stop>
+    </linearGradient>
+  </defs>
+
+  <circle cx="50" cy="50" r="40" fill="url(#gradPink)"></circle>
+  <circle cx="50" cy="50" r="7" fill="#ffffff"></circle>
+</svg>
